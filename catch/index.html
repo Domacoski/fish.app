@@ -1,0 +1,76 @@
+<style>
+.cacth-card-wide{
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 16px;
+    width: 80%;
+}
+.cacth-form{
+    padding: 16px;
+    margin: 16px;
+}
+.mdl-textfield{
+    margin: 7px;
+    width: 90%;
+}
+</style>
+<div class="cacth-card-wide mdl-card mdl-shadow--2dp">
+  <div class="mdl-card__title">
+    <h2 class="mdl-card__title-text">Nova Captura 🎣</h2>
+  </div>
+    <form action="#" id="cacth-form">
+
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <input class="mdl-textfield__input" type="datetime-local" id="date" name="date" >
+            <label class="mdl-textfield__label" for="date">Data da captura</label>
+        </div>
+
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <input class="mdl-textfield__input" type="number" id="medida" pattern="-?[0-9]*(\.[0-9]+)?" name="medida">
+            <label class="mdl-textfield__label" for="medida">Medida</label>
+        </div>
+
+        <br/>
+        
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <input class="mdl-textfield__input" type="number" pattern="-?[0-9]*(\.[0-9]+)?" id="peso" name="peso">
+            <label class="mdl-textfield__label" for="peso">Peso</label>
+        </div>
+        
+        <br/>
+        
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <select class="mdl-textfield__input"  id="especie" name="especie"> </select>
+            <label class="mdl-textfield__label" for="especie">Espécie</label>
+        </div>
+
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <input class="mdl-textfield__input"  type="text" id="location" name="location" readonly> </input>
+            <label class="mdl-textfield__label" for="location">Localização</label>
+        </div>
+
+        <div>
+            <div class="mdl-textfield mdl-js-textfield">
+                <img id="img1" src="" width="200px" height="200px">
+                <input type="file" id="photo1" onchange="readURL(this, '1');"> </input>   
+            </div>
+            <div class="mdl-textfield mdl-js-textfield">
+                <img id="img2" src="" width="200px" height="200px">
+                <input type="file" id="photo2" onchange="readURL(this, '2');"> </input>   
+            </div>
+            <div class="mdl-textfield mdl-js-textfield">
+                <img id="img3" src="" width="200px" height="200px">
+                <input type="file" id="photo3" onchange="readURL(this, '3');"> </input>   
+            </div>
+        </div>
+
+
+  </form>
+  <div class="mdl-card__actions mdl-card--border">
+    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+      SALVAR
+    </a>
+  </div>
+  
+</div>
+<script type="text/javascript" src="/catch/catch.js" ></script>
