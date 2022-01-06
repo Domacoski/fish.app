@@ -1,0 +1,8 @@
+body { 
+  background: #fafafa;
+  position: relative;
+}
+.large{
+  font-size: large;
+  color: black;
+}

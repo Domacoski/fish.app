@@ -1,0 +1,29 @@
+<img id="img-storage" src="" width="200px" height="200px">
+<input type="file" id="photo" onchange="readURL(this);"> </input>
+<script type="text/javascript" >
+
+function readURL(input){
+
+if (input.files && input.files[0]) {
+    // get user's uploaded image
+    const imgPath = document.querySelector('input[type=file]').files[0];
+    const reader = new FileReader();
+
+    reader.addEventListener("load", function () {
+        console.log('event listner result!');   
+        localStorage.setItem("image", reader.result);
+        console.log('save image');
+        loadImage();
+    }, false);
+
+        if (imgPath) {
+            reader.readAsDataURL(imgPath);
+        }
+    }
+};
+
+function loadImage(){
+    let img = document.getElementById('img-storage');
+    img.src = localStorage.getItem('image'); 
+};
+</script>
