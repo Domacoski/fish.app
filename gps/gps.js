@@ -1,19 +1,15 @@
-console.log('[GPS START]');
 var loop = undefined;
 const IS_LOOP = false;
 const CHECK_GPS = 'gps-check';
 
 var dialog = document.querySelector('dialog'); 
-    if (! dialog.showModal) {
-      dialogPolyfill.registerDialog(dialog);
-    }
     dialog.querySelector('.no').addEventListener('click', function() {
       dialog.close();
       alert('O app não pode funcionar!');
     });
     dialog.querySelector('.yes').addEventListener('click', function() {
       dialog.close();
-      localStorage.setItem(CHECK_GPS, 1);
+      // localStorage.setItem(CHECK_GPS, 1);
       getLocation(updateLocation);
 
     });

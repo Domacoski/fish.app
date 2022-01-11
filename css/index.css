@@ -1,8 +1,92 @@
 body { 
   background: #fafafa;
   position: relative;
+  margin: 0 auto;
+  padding: 0 auto;
 }
-.large{
+#main-header{
+  width: 100vw;
+  height: 10vh;
+  font-size: xx-large;
+  background: #5a91cf;
+}
+#main-view{
+  width: 100vw;
+  height: 75vh;
+  background: #fafafa;
+}
+#main-footer{
+  margin: 0 auto;
+  padding: 0 auto;
+  width: 100vw;
+  height: 15vh;
+  background: #1e436e;
+  display: inline-block; 
+}
+.footer-action{
+  cursor: pointer;
+  display: inline-flex;
+  margin: 0 auto;
+  margin-right: 1vw;
+  margin-left: 1vw;
+  margin-top: 0; 
+  margin-bottom: 0;
+  width: 25vw;
+  height: 15vh;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+}
+.footer-action:hover{
+  background-color: #5a91cf5e;
+}
+.footer-action img{
+  width: 73px;
+  height: 73px;
+  margin: 0 auto;
+  padding: 0;
+  display: table-row;
+}
+.footer-action h5{    
+  text-align: center;
   font-size: large;
-  color: black;
+  margin: 0 auto;
+  padding: 0;
+  color: #fafafa;
+  display: table-row;
+}
+.yes{
+  background-color: rgb(43, 255, 0);
+}
+.no{
+  background-color: rgb(255, 0, 76);
+}
+.bt{
+  font-size: xx-large;
+  margin: 7px;
+  padding: 7px;
+}
+dialog{
+  width: 70vw;
+  margin: 17px auto;
+  background: #fafafa;
+  border: none;
+  box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+}
+dialog h1{
+  display: inline;
+  color: #1e436e;
+  font-size: xx-large;
+}
+dialog img{
+  display: inline;
+  width: 60px;
+  height: 60px;
+  margin: 7px auto;
+}
+dialog p{
+  color: #1e436e;
+  font-size: large;
 }

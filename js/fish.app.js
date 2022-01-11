@@ -6,21 +6,17 @@ $( document ).ready(function() {
 const onCreate = () => {
     $("#catchButton").click(function(){
         $.get("catch/index.html", function( data ){
-            var page = $(".page-content");
-            page.html(data);
-            componentHandler.upgradeDom();
+            $("#main-view").html(data);
         }); 
     });
     $("#loginButton").click(function(){
         console.log('click login');
     });
-    checkDataBase().then(r=> {
-        console.log('GPS loading...');
+    checkDataBase().then(r => {
         $.get( '/gps/index.html', function( data ) {
-            $(".page-content").html(data);
-            componentHandler.upgradeDom();
+            $("#main-view").html(data);
             checkLastAcess().then(i =>{
-                console.log(i);
+                localStorage.setItem('last_acess', new Date().getTime());
             }).catch(e =>{
                 console.log(`erro: ${e}`);
             }); 
@@ -39,14 +35,12 @@ const checkLastAcess = () =>{
             localStorage.setItem('last_acess', value);
             reject(0);
         }else{
-            console.log('já teve acesso ');
             resolve(1);
         }
     });
 }; 
 const checkDataBase = () => {
     return new Promise((resolve, reject)=>{
-        console.log('check database');
         openDataBase();
         resolve(1);
     });

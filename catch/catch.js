@@ -7,7 +7,9 @@ $.get('types/all.json', function(data){
     setNowDatePicker();
     
     getLastLocation().then(r=>{
+        console.log(`AQUI:  ${JSON.stringify(r)}`);
         $("#location").val(`${r.lat},${r.lon}`);
+        $("#locationId").val(r.rowid);
         componentHandler.upgradeDom();
     }).catch(e =>{
         alert('Não foi possível localizar a captura!');

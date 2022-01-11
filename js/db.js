@@ -8,12 +8,12 @@ var open = () => openDatabase(NAME, VERSION, DESC, SIZE);
  function openDataBase (  ) {
     var dataBase  = open();
         dataBase.transaction(function (tx) {   
-            tx.executeSql('CREATE TABLE IF NOT EXISTS user (id REAL unique, webId TEXT, name TEXT, login TEXT, password TEXT)');
-            tx.executeSql('CREATE TABLE IF NOT EXISTS type (id REAL unique, webId TEXT, name TEXT)'); 
-            tx.executeSql('CREATE TABLE IF NOT EXISTS fish (id REAL unique, type REAL, location REAL, img text, data text)');
-            tx.executeSql('CREATE TABLE IF NOT EXISTS img (id REAL unique, data TEXT)');
-            tx.executeSql('CREATE TABLE IF NOT EXISTS imgFish (id REAL unique, fish REAL, img REAL)');  
-            tx.executeSql('CREATE TABLE IF NOT EXISTS location (id REAL unique, timestamp REAL, lat text, lon text)'); 
+            tx.executeSql('CREATE TABLE IF NOT EXISTS user (webId TEXT, name TEXT, login TEXT, password TEXT)');
+            tx.executeSql('CREATE TABLE IF NOT EXISTS type (webId TEXT, name TEXT)'); 
+            tx.executeSql('CREATE TABLE IF NOT EXISTS fish (type INTEGER, location INTEGER, data text, peso REAL, tamanho REAL)');
+            tx.executeSql('CREATE TABLE IF NOT EXISTS img (data TEXT)');
+            tx.executeSql('CREATE TABLE IF NOT EXISTS imgFish (fish INTEGER, img INTEGER)');  
+            tx.executeSql('CREATE TABLE IF NOT EXISTS location (timestamp REAL, lat text, lon text)'); 
         });
 }
 
@@ -35,10 +35,8 @@ function getLastLocation () {
             if(tx == undefined){
                 reject('no transaction"');
             }
-            tx.executeSql('select * from location limit 1',[],function(tx, data){
+            tx.executeSql('select rowid, timestamp, lat, lon from location limit 1',[],function(tx, data){
                
-                console.log(data);
-                // tx.close();
                 resolve(data.rows[0]);
             });
         });
